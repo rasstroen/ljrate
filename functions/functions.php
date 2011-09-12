@@ -1,4 +1,4 @@
-<?php
+<pre><?php
 
 function valid_email_address($mail) {
 	$user = '[a-zA-Z0-9_\-\.\+\^!#\$%&*+\/\=\?\`\|\{\}~\']+';
@@ -6,6 +6,30 @@ function valid_email_address($mail) {
 	$ipv4 = '[0-9]{1,3}(\.[0-9]{1,3}){3}';
 	$ipv6 = '[0-9a-fA-F]{1,4}(\:[0-9a-fA-F]{1,4}){7}';
 	return preg_match("/^$user@($domain|(\[($ipv4|$ipv6)\]))$/", $mail);
+}
+
+function isLjUrl($url) {
+	if (strpos($url, 'livejournal') !== false) {
+		return true;
+	}
+	return false;
+}
+
+function getAuthorAndIdByUrl($url) {
+	$id = 0;
+	$author = '';
+	$urlp = explode('/', $url);
+	$id = $urlp[sizeof($urlp) - 1];
+	$idp = explode('.', $id);
+	$id = isset($idp[0]) ? (int) $idp[0] : 0;
+	if (isset($urlp[2])) {
+		$sub = explode('.', $urlp[2]);
+		if (isset($sub[0])) {
+			$author = $sub[0];
+		}
+	}
+	$author = str_replace('_', '-', $author);
+	return array($author, $id);
 }
 
 function curl($url) {
