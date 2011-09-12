@@ -1,0 +1,41 @@
+.main_top_block_logo{
+	width:300px;
+	text-align: center;
+	background: #bababa;
+}
+
+.main_top_block_right_td{
+
+}
+.main_top_block_menu1{
+	display:block;
+	float:right;
+}
+
+.main_top_block_menu1 li{
+	float:left;
+	margin:20px;
+}
+
+.main_top_block_menu2{
+	display:block;
+	float:right;
+}
+
+.main_top_block_menu2 li{
+	float:left;
+	margin:20px;
+}
+
+.profileFriends{
+	float:left;
+	width:120px;
+	height:140px;
+	overflow: hidden;
+	background: #bebebe;
+	text-align: center;
+}
+
+.profileFriends img{
+	border:none;
+}
